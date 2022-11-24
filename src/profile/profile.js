@@ -1,6 +1,5 @@
 import PropTypes from "prop-types"; // ES6
-function profile(props) {
-  let { fullName, bio, profession } = props;
+function profile({fullName, bio, profession,handleAlert,children}) {
   let style = {
     boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
     transition: "0.3s",
@@ -8,14 +7,11 @@ function profile(props) {
     backgroundColor: "white",
     padding: "10px 10px",
     borderRadius: "5px",
-  }; 
-  const handleClick = e => {
-    e.preventDefault();
-    alert(fullName);
   };
   return (
-    <div style={style} onClick={handleClick}>
-      {props.children}
+    
+    <div style={style} onClick={()=>handleAlert(fullName)}>
+      {children}
       <h2 style={{ textAlign: "center", color: "#282c34" }}>{fullName}</h2>
       <h3>{profession}</h3>
       <p>{bio}</p>
